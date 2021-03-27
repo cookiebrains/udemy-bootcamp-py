@@ -12,12 +12,18 @@ def deal_n_cards(n):
 
 
 def hand_value(hand):
-    value = 0
-    for card in hand:
-        value += card
-        if value > 21 and 11 in hand:
-            value = value - 10
-    return value
+    aces = list(filter(lambda x: x == 11, hand))
+    not_aces = list(filter(lambda x: x != 11, hand))
+
+    total = sum(aces) + sum(not_aces)
+
+    if total > 21 and len(aces) > 0:
+        for _ in aces:
+            total -= 10
+            if total <= 21:
+                break
+
+    return total
 
 
 def add_one_card(hand):
@@ -37,7 +43,10 @@ def taking_cards(hand):
         another_card = input("Type 'y' to get another card, type 'n' to pass: ")
         if another_card == 'y':
             hand = add_one_card(hand)
+            current_hand_value = hand_value(hand)
             print(f'Your cards: {hand}, current score: {hand_value(hand)}')
+            if current_hand_value > 21:
+                break
         elif another_card == 'n':
             print(f'Your final hand: {hand}, final score {hand_value(hand)}')
             break
@@ -70,12 +79,9 @@ def game():
 
 
 def run():
-    keep_going = True
-    while keep_going:
+    while True:
         game()
         choose_to_cont = input(f"Do you want to play another game of Blackjack? Type 'y' or 'n':")
         if choose_to_cont == 'n':
             break
     print('Thanks for playing!')
-
-

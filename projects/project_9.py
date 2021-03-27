@@ -28,8 +28,5 @@ def run():
         if run_again == 'no':
             should_continue = False
 
-
     winning_info = the_winner(all_bids)
     print(f'The winner is {winning_info[0]} with a bid of ${winning_info[1]}.')
-
-

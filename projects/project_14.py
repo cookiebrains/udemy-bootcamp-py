@@ -2,20 +2,6 @@ from input_files import data, hl_logo, vs
 import random
 
 
-# the length of the data is 50, it's a list
-# {
-#         'name': 'Instagram',
-#         'follower_count': 346,
-#         'description': 'Social media platform',
-#         'country': 'United States'
-#     }
-# To Do: 1. random numbers to select the two candidates,
-#        2. format and print the vs.
-#        3. Ask user for a or b
-#        4. won or loss.
-#     5. score keeping
-
-
 def select_two_candidates():
     """Returns a list of two randomly selected candidates
     """

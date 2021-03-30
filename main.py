@@ -1,5 +1,5 @@
 from utilz import MyStopwatch
-from projects import project_18 as problem
+from projects import project_20 as problem
 
 
 def get_problem_num():
